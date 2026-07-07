@@ -1,4 +1,4 @@
-const API_URL = "https://script.googleusercontent.com/macros/echo?user_content_key=AUkAhnT8z9sYqYHc3FOujGYkAmQXfWYqZ5Z7IdHtqXyNuU_g0fTk2bbj1XbQ6TKvGSDbBPWeQ6EfY8XzHV84NDjw_1-YCjdRm5ytEsr9fuEDDBWhksLoLuyJfQfrsI66deAvbyx9fd0Ro3xJY10_1axGC9KmFblS0GUH-WckQIWb4qjC_-usye9llx5e8DUSEDwsqo5RLe_Z5-J-YQZlsKajuqIqjjxN7uDKLGxphyV49UuV7jL9ykuKo0uAwM7pP2QcWRRLXETq5Cn7zUlTjJ9LrYRVy7Y6dg&lib=MaQxjQjLTcTJSyY71HQPmM36CZDhuSRl7";
+const API_URL = "https://script.google.com/macros/s/AKfycbxoiZ1Toe9nYZvnCTE2tzuaB4kPUmLNJ5mlA_KLrxNh1Yq47WBOlTHmCvdexfndE5u4/exec";
 
 const companiesDiv = document.getElementById("companies");
 
@@ -10,13 +10,16 @@ fetch(API_URL)
 
         data.forEach(review => {
 
-            console.log(review);
-
             companiesDiv.innerHTML += `
                 <div class="company-card">
-                    <h2>${review.company_name}</h2>
-                    <p>⭐ ${review.overall_rating}</p>
-                    <p>${review.branch}</p>
+                    <h2>${review["Company Name"]}</h2>
+                    <p>⭐ ${review["Overall Rating of Employment Experience"]}</p>
+                    <p>📍 ${review["Branch"]}</p>
+                    <p><strong>Account:</strong> ${review["Project/Account"]}</p>
+                    <p><strong>Job:</strong> ${review["Job Title"]}</p>
+                    <p><strong>Pros:</strong> ${review["What were the primary pros of working here?"]}</p>
+                    <p><strong>Cons:</strong> ${review["What were the primary cons of working here?"]}</p>
+                    <p><strong>Recommend:</strong> ${review["Would you recommend this company to others?"]}</p>
                 </div>
             `;
 
