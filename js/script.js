@@ -2,7 +2,7 @@ const API_URL = "https://script.google.com/macros/s/AKfycbyPmIQcDGRObjEiNxXzsbQU
 
 const companiesDiv = document.getElementById("companies");
 
-fetch(API_URL)
+fetch("data.json")
     .then(response => response.json())
     .then(data => {
 
