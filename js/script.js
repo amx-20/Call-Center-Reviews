@@ -26,7 +26,7 @@ function groupByCompany(rows) {
   });
   return Object.entries(groups).map(([name, reviews]) => {
     const avg = reviews.reduce((s, r) => s + Number(r.overall_rating), 0) / reviews.length;
-    const branchCount = new Set(reviews.map(r => (r.branch || "").trim()).filter(Boolean)).size;
+    const branchCount = new Set(reviews.map(r => String(r.branch || "").trim()).filter(Boolean)).size;
     return { name, reviews, avg, branchCount };
   }).sort((a, b) => b.reviews.length - a.reviews.length);
 }
